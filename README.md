@@ -8,7 +8,7 @@ In Ethereum smart contract development, it is essential to handle conditions and
 
 ## Functions Overview
 
-### `assertErrorFunctionn(uint input)`
+### `assertErrorFunctionn(uint _value)`
 
 This function tests the `assert` global function by verifying that the provided input value is greater than 0. If the condition is not met, the assertion will trigger an exception.
 
@@ -74,7 +74,7 @@ The `require` global function is demonstrated in this function, validating that 
 
 ### `revertErrorFunction(uint _value)`
 
-Here, the `revert` global function is utilized to check if the value is less than 5. If the condition is not met, the function reverts the transaction with a specific error message.
+Here, the `revert` global function is utilized to check if the value is less than 10. If the condition is not met, the function reverts the transaction with a specific error message.
 
 ## Usage
 
@@ -102,7 +102,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.(uint input)`
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.(uint _value)`
    - `requireErrorFunction(uint _value)`
    - `revertErrorFunction(uint _value)`
 
