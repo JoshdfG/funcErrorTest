@@ -1,19 +1,40 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.9;
 
-contract errorProjectTest {
-    function assertErrorFunction(uint _value) external pure returns (uint) {
+contract funcErrors {
+    string public message;
+
+    constructor(string memory _initialMessage) {
+        require(bytes(_initialMessage).length > 0, "Initial message must not be empty");
+        message = _initialMessage;
+    }
+
+    function setMessage(string memory _newMessage) public {
+        require(bytes(_newMessage).length > 0, "New message must not be empty");
+        message = _newMessage;
+    }
+
+    function getMessage() public view returns (string memory) {
+        return message;
+    }
+
+    function assertExample(uint256 _value) public pure returns (uint256) {
+        // Ensure value is greater than 0 using assert
         assert(_value > 0);
         return _value;
     }
 
-    function requireErrorFunction(uint _value) external pure returns (uint) {
-        require(_value > 10, "value should be greater than 10");
+    function requireExample(uint256 _value) public pure returns (uint256) {
+        // Ensure value is greater than 10 using require
+        require(_value > 10, "Value should be greater than 10");
         return _value;
     }
 
-    function revertErrorFunction(uint _value) external pure returns (uint) {
-        if (_value < 10) revert("value less than 10 Input the correct value");
+    function revertExample(uint256 _value) public pure returns (uint256) {
+        // Ensure value is less than 100 using revert
+        if (_value >= 100) {
+            revert("Value must be less than 100");
+        }
         return _value;
     }
 }
